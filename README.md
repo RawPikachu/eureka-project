@@ -6,6 +6,7 @@ Hintify
 Requirements
 ------------
 - OpenAI API token
+- Python 3.11.x
 - `pip install -r requirements.txt`
 
 Usage
