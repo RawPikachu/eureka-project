@@ -17,5 +17,8 @@ def result():
 
     latex_problem = math_ocr_latex(img)
     solution = gpt_solve_prob(latex_problem)
+    solution_fmt = solution.split("\n")
+    print(latex_problem)
+    print(solution)
 
-    return render_template("result.html", solution=solution)
+    return render_template("result.html", solution=solution_fmt)

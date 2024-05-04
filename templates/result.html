@@ -30,7 +30,9 @@
                 </div>
             </div>
             <div class="row d-flex justify-content-center">
-                <p style="text-align:center">{{ solution }}</p>
+                {% for i in range(solution| length) %}
+                <p style="text-align:center">{{ solution[i] }}</p>
+                {% endfor %}
             </div>
         </div>
     </section>
