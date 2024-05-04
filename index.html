@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Upload your question</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <div class="hero">
+            <div class="card">
+                <h1>Upload Your Question</h1>
+                <p>@made by: </p>
+                <img src="images/upload2.png">
+                <form id="upload-form" enctype="multipart/form-data">
+                    <label for="input-file">Upload Image</label>
+                    <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" name="image" required>
+                    <button type="submit">Upload</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('upload-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                var formData = new FormData();
+                var file = document.getElementById('input-file').files[0];
+                formData.append('image', file);
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/images', true);
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        alert('File uploaded successfully!');
+                    } else {
+                        alert('Error uploading file. Please try again.');
+                    }
+                };
+                xhr.send(formData);
+            });
+        </script>
+
+    </body>
+</html>
